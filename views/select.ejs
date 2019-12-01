@@ -1,0 +1,52 @@
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<header>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  	<div class="collapse navbar-collapse col-md-6 offset-md-5" id="navbarNav">
+		    <ul class="navbar-nav">
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="/form">Add new Book</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="/select">Books Data</a>
+		      	</li>
+		    </ul>
+	  	</div>
+	</nav>		
+</header>
+
+<body style="background-color: ">
+	
+	<div class="container text-center">		
+
+		<br><h1>Books Data</h1><br>
+
+		<table class="table table-hover">
+			<tr>
+				<td><b>ID</b></td>
+				<td><b>NAME</b></td>
+				<td><b>PRICE</b></td>
+				<td></td>
+			</tr>
+
+			<% books.forEach(function(item) { %>
+
+			<tr>
+				<td><%= item.id %></td>
+				<td><%= item.name %></td>
+				<td><%= item.price %> ₸</td>
+				<td>
+					<a class="text-danger" href="/delete?id=<%= item.id %>" onClick="return confirm('Are you sure ?')">Delete</a>
+					|
+					<a class="text-success" href="/edit?id=<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }); %>
+
+		</table>
+
+	</div>
+
+</body>
